@@ -45,7 +45,6 @@ class Container extends Component {
   //   handle the submit of a new song
   handleSubmit = (event) => {
     event.preventDefault();
-
     // create a new song object from the submit data
     const newSong = createNewSong(event.target);
 
@@ -72,6 +71,19 @@ class Container extends Component {
     });
   };
 
+  // delete song from state
+  handleDelete = (id) => {
+    this.setState((prevState) => {
+      const updatedSongs = prevState.songs;
+      const songToDel = updatedSongs.findIndex((song) => song.id === id);
+      updatedSongs.splice(songToDel, 1);
+      return {
+        ...prevState,
+        songs: updatedSongs,
+      };
+    });
+  };
+
   render() {
     return (
       <div>
@@ -79,7 +91,10 @@ class Container extends Component {
           handleSubmit={this.handleSubmit}
           genres={this.state.genres}
         />
-        <SongContainer songs={this.state.songs} />
+        <SongContainer
+          songs={this.state.songs}
+          handleDelete={this.handleDelete}
+        />
       </div>
     );
   }

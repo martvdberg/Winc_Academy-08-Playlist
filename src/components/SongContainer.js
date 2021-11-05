@@ -4,7 +4,9 @@ import Song from "./Song";
 
 function SongList(props) {
   const songs = props.songs.map((song) => {
-    return <Song song={song} key={createKey()} />;
+    return (
+      <Song song={song} key={createKey()} handleDelete={props.handleDelete} />
+    );
   });
 
   return (

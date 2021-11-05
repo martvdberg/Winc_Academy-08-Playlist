@@ -7,7 +7,7 @@ function Song(props) {
       <td>{props.song.title}</td>
       <td>{props.song.genre}</td>
       <td>{props.song.rating}</td>
-      <td>del</td>
+      <td onClick={() => props.handleDelete(props.song.id)}>del</td>
     </tr>
   );
 }
