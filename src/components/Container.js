@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import createKey from "../util";
 import InputContainer from "./InputContainer";
 import SongContainer from "./SongContainer";
+import SortContainer from "./SortContainer";
 
 const createNewSong = (songData) => {
   return {
-    artist: songData.artist.value,
-    title: songData.title.value,
+    artist: songData.artist.value.toLowerCase(),
+    title: songData.title.value.toLowerCase(),
     rating: songData.rating.value,
     id: createKey(),
     genre:
@@ -39,6 +40,7 @@ class Container extends Component {
           checked: false,
         },
       ],
+      sort: "",
     };
   }
 
@@ -84,6 +86,11 @@ class Container extends Component {
     });
   };
 
+  // set state with the sort value
+  handleChangeSort = (event) => {
+    this.setState({ sort: event.target.value });
+  };
+
   render() {
     return (
       <div>
@@ -91,9 +98,14 @@ class Container extends Component {
           handleSubmit={this.handleSubmit}
           genres={this.state.genres}
         />
+        <SortContainer
+          sortValue={this.state.sort}
+          handleChangeSort={this.handleChangeSort}
+        />
         <SongContainer
           songs={this.state.songs}
           handleDelete={this.handleDelete}
+          sortValue={this.state.sort}
         />
       </div>
     );
