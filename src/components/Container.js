@@ -41,6 +41,7 @@ class Container extends Component {
         },
       ],
       sort: "",
+      sortByGenre: false,
     };
   }
 
@@ -91,6 +92,16 @@ class Container extends Component {
     this.setState({ sort: event.target.value });
   };
 
+  // change state for sort by genre option
+  handleClickSortByGenre = (event) => {
+    this.setState((prevState) => {
+      return {
+        ...prevState,
+        sortByGenre: !prevState.sortByGenre,
+      };
+    });
+  };
+
   render() {
     return (
       <div>
@@ -101,11 +112,14 @@ class Container extends Component {
         <SortContainer
           sortValue={this.state.sort}
           handleChangeSort={this.handleChangeSort}
+          handleClickSortByGenre={this.handleClickSortByGenre}
         />
         <SongContainer
           songs={this.state.songs}
+          genres={this.state.genres}
           handleDelete={this.handleDelete}
           sortValue={this.state.sort}
+          sortByGenre={this.state.sortByGenre}
         />
       </div>
     );

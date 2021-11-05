@@ -15,7 +15,37 @@ function SongList(props) {
     songs.reverse();
   }
 
-  // create a Song component for each song in songs
+  // create a list per genre with the song items in it
+  const genreList = props.genres.map((genre) => {
+    // filter songs by gerne and create a Song component for every song that is filterd
+    const filterdSongItems = songs
+      .filter((e) => e.genre === genre.genre)
+      .map((song) => {
+        return (
+          <Song
+            song={song}
+            key={createKey()}
+            handleDelete={props.handleDelete}
+          />
+        );
+      });
+
+    // only create a genre item if it have songs in it
+    if (filterdSongItems.length > 0) {
+      return (
+        <tbody key={createKey()}>
+          <tr>
+            <th>{genre.genre}</th>
+          </tr>
+          {filterdSongItems}
+        </tbody>
+      );
+    } else {
+      return null;
+    }
+  });
+
+  // create a Song component for each song in songs for one long list
   const songItems = songs.map((song) => {
     return (
       <Song song={song} key={createKey()} handleDelete={props.handleDelete} />
@@ -32,7 +62,7 @@ function SongList(props) {
           <th>Rating</th>
         </tr>
       </thead>
-      <tbody>{songItems}</tbody>
+      {props.sortByGenre ? genreList : <tbody>{songItems}</tbody>}
     </table>
   );
 }

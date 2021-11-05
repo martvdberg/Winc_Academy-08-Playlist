@@ -1,12 +1,16 @@
 import React from "react";
 import Sort from "./Sort";
+import Categorize from "./Categorize";
 
 function SortContainer(props) {
   return (
-    <Sort
-      sortValue={props.sortValue}
-      handleChangeSort={props.handleChangeSort}
-    />
+    <section>
+      <Categorize handleClickSortByGenre={props.handleClickSortByGenre} />
+      <Sort
+        sortValue={props.sortValue}
+        handleChangeSort={props.handleChangeSort}
+      />
+    </section>
   );
 }
 
