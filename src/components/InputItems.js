@@ -47,7 +47,7 @@ function InputItems(props) {
             -select-
           </option>
           {genres}
-          <option value="other">Other</option>
+          <option value="other">other</option>
         </select>
         {/* Only render the new genre input field if genre = other */}
         {props.inputState.genre === "other" ? (
