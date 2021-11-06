@@ -93,10 +93,9 @@ class Container extends Component {
   };
 
   // change state for sort by genre option
-  handleClickSortByGenre = (event) => {
+  handleClickSortByGenre = () => {
     this.setState((prevState) => {
       return {
-        ...prevState,
         sortByGenre: !prevState.sortByGenre,
       };
     });
