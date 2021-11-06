@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import createKey from "../util";
+import Header from "./Header";
 import InputContainer from "./InputContainer";
 import SongContainer from "./SongContainer";
 import SortContainer from "./SortContainer";
@@ -190,7 +191,9 @@ class Container extends Component {
 
   render() {
     return (
-      <div>
+      <section className="wrapper">
+        <Header />
+
         <InputContainer
           handleSubmit={this.handleSubmit}
           genres={this.state.genres}
@@ -214,7 +217,7 @@ class Container extends Component {
           sortValue={this.state.sort}
           sortByGenre={this.state.sortByGenre}
         />
-      </div>
+      </section>
     );
   }
 }

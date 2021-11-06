@@ -4,7 +4,7 @@ import Categorize from "./Categorize";
 
 function SortContainer(props) {
   return (
-    <section>
+    <section className="sorter">
       <Categorize handleClickSortByGenre={props.handleClickSortByGenre} />
       <Sort
         sortValue={props.sortValue}

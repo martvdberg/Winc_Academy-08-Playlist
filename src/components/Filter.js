@@ -5,7 +5,11 @@ function Filter(props) {
   // create chackboxes for all genres
   const genres = props.genres.map((genre) => {
     return (
-      <label htmlFor={genre.genre} key={createKey()}>
+      <label
+        className="filter__section--item"
+        htmlFor={genre.genre}
+        key={createKey()}
+      >
         <input
           type="checkbox"
           id={genre.genre}
@@ -22,7 +26,11 @@ function Filter(props) {
   // create chackboxes for all ratings
   const ratings = props.ratings.map((rating) => {
     return (
-      <label htmlFor={rating.rating} key={createKey()}>
+      <label
+        className="filter__section--item"
+        htmlFor={rating.rating}
+        key={createKey()}
+      >
         <input
           type="checkbox"
           id={rating.rating}
@@ -37,16 +45,18 @@ function Filter(props) {
   });
 
   return (
-    <section>
-      <section>
-        <h2>Ratings</h2>
+    <section className="filter">
+      <section className="filter__section">
+        <h2 className="filter__section--headerText">Ratings</h2>
         {ratings}
       </section>
-      <section>
-        <h2>genre</h2>
+      <section className="filter__section">
+        <h2 className="filter__section--headerText">genre</h2>
         {genres}
       </section>
-      <button onClick={props.handleClickReset}>Reset filter</button>
+      <button className="filter__section--btn" onClick={props.handleClickReset}>
+        Reset filter
+      </button>
     </section>
   );
 }

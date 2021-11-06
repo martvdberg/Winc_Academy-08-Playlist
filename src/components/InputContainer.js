@@ -32,6 +32,7 @@ class InputContainer extends Component {
   render() {
     return (
       <form
+        className="addSongWrapper"
         onSubmit={(event) => {
           this.resetForm();
           this.props.handleSubmit(event);

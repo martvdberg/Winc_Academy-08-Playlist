@@ -12,9 +12,10 @@ function InputItems(props) {
   });
 
   return (
-    <fieldset>
-      <label htmlFor="artist">
+    <fieldset className="addSong">
+      <label htmlFor="artist" className="addSong__item">
         <input
+          className="addSong__item--textInput"
           type="text"
           name="artist"
           placeholder="Artist"
@@ -24,8 +25,9 @@ function InputItems(props) {
         />
       </label>
 
-      <label htmlFor="title">
+      <label htmlFor="title" className="addSong__item">
         <input
+          className="addSong__item--textInput"
           type="text"
           name="title"
           placeholder="Title"
@@ -35,9 +37,13 @@ function InputItems(props) {
         />
       </label>
 
-      <label htmlFor="genre">
+      <label
+        htmlFor="genre"
+        className="addSong__item, addSong__item--extraOption"
+      >
         Genre:
         <select
+          className="addSong__item--selectbox"
           name="genre"
           value={props.inputState.genre}
           onChange={props.handleChange}
@@ -52,6 +58,7 @@ function InputItems(props) {
         {/* Only render the new genre input field if genre = other */}
         {props.inputState.genre === "other" ? (
           <input
+            className="addSong__item--textInput"
             type="text"
             name="newGenre"
             placeholder="add a new genre"
@@ -62,9 +69,10 @@ function InputItems(props) {
         ) : null}
       </label>
 
-      <label htmlFor="rating">
+      <label htmlFor="rating" className="addSong__item">
         Rating:
         <select
+          className="addSong__item--selectbox"
           name="rating"
           value={props.inputState.rating}
           onChange={props.handleChange}
@@ -80,7 +88,7 @@ function InputItems(props) {
           <option value="5">5 stars</option>
         </select>
       </label>
-      <button>Add song</button>
+      <button className="addSong__item--btn">Add song</button>
     </fieldset>
   );
 }

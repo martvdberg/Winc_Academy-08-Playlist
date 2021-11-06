@@ -59,7 +59,7 @@ function SongList(props) {
     if (filterdSongItems.length > 0) {
       return (
         <tbody key={createKey()}>
-          <tr>
+          <tr className="songist__subheadings">
             <th>{genre.genre}</th>
           </tr>
           {filterdSongItems}
@@ -78,8 +78,8 @@ function SongList(props) {
   });
 
   return (
-    <table>
-      <thead>
+    <table className="songList">
+      <thead className="songList__headings">
         <tr>
           <th>Artist</th>
           <th>Title</th>
