@@ -3,6 +3,7 @@ import createKey from "../util";
 import InputContainer from "./InputContainer";
 import SongContainer from "./SongContainer";
 import SortContainer from "./SortContainer";
+import Filter from "./Filter";
 
 const createNewSong = (songData) => {
   return {
@@ -37,6 +38,28 @@ class Container extends Component {
         },
         {
           genre: "blues",
+          checked: false,
+        },
+      ],
+      ratings: [
+        {
+          rating: "1",
+          checked: false,
+        },
+        {
+          rating: "2",
+          checked: false,
+        },
+        {
+          rating: "3",
+          checked: false,
+        },
+        {
+          rating: "4",
+          checked: false,
+        },
+        {
+          rating: "5",
           checked: false,
         },
       ],
@@ -101,6 +124,44 @@ class Container extends Component {
     });
   };
 
+  // change state of rating or genre when checked
+  handleChangeFilter = (event) => {
+    const inputValue = event.target.name;
+    this.setState((prevState) => {
+      const updatedState = prevState[inputValue].map((item) => {
+        if (item[inputValue.slice(0, -1)] === event.target.value) {
+          return {
+            ...item,
+            checked: !item.checked,
+          };
+        } else {
+          return item;
+        }
+      });
+      return {
+        ...prevState,
+        [inputValue]: updatedState,
+      };
+    });
+  };
+
+  // reset filter checkboxes
+  handleClickReset = () => {
+    this.setState((prevState) => {
+      const updatedGenres = prevState.genres.map((genre) => {
+        return { ...genre, checked: false };
+      });
+      const updatedRating = prevState.ratings.map((rating) => {
+        return { ...rating, checked: false };
+      });
+      return {
+        ...prevState,
+        genres: updatedGenres,
+        ratings: updatedRating,
+      };
+    });
+  };
+
   render() {
     return (
       <div>
@@ -113,9 +174,16 @@ class Container extends Component {
           handleChangeSort={this.handleChangeSort}
           handleClickSortByGenre={this.handleClickSortByGenre}
         />
+        <Filter
+          genres={this.state.genres}
+          ratings={this.state.ratings}
+          handleChangeFilter={this.handleChangeFilter}
+          handleClickReset={this.handleClickReset}
+        />
         <SongContainer
           songs={this.state.songs}
           genres={this.state.genres}
+          ratings={this.state.ratings}
           handleDelete={this.handleDelete}
           sortValue={this.state.sort}
           sortByGenre={this.state.sortByGenre}

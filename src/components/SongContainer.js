@@ -3,7 +3,32 @@ import createKey from "../util";
 import Song from "./Song";
 
 function SongList(props) {
-  const songs = props.songs;
+  // create an array of checked genres
+  const selectedGenres = props.genres.reduce((newArray, current) => {
+    if (current.checked) {
+      newArray.push(current.genre);
+    }
+    return newArray;
+  }, []);
+
+  // create an array of all the checked ratings
+  const selectedRatings = props.ratings.reduce((newArray, current) => {
+    if (current.checked) {
+      newArray.push(current.rating);
+    }
+    return newArray;
+  }, []);
+
+  // filter songs based on checked ratings and genres
+  const songs = props.songs.reduce((filterdSongs, current) => {
+    if (
+      (selectedGenres.length === 0 || selectedGenres.includes(current.genre)) &&
+      (selectedRatings.length === 0 || selectedRatings.includes(current.rating))
+    ) {
+      filterdSongs.push(current);
+    }
+    return filterdSongs;
+  }, []);
 
   // sort the song list by the sort value
   if (props.sortValue.slice(-3) !== "REV") {
@@ -30,7 +55,7 @@ function SongList(props) {
         );
       });
 
-    // only create a genre item if it have songs in it
+    // only create a genre element if it have songs in it
     if (filterdSongItems.length > 0) {
       return (
         <tbody key={createKey()}>
