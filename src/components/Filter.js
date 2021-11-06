@@ -38,7 +38,14 @@ function Filter(props) {
 
   return (
     <section>
-      {genres} {ratings}
+      <section>
+        <h2>Ratings</h2>
+        {ratings}
+      </section>
+      <section>
+        <h2>genre</h2>
+        {genres}
+      </section>
       <button onClick={props.handleClickReset}>Reset filter</button>
     </section>
   );

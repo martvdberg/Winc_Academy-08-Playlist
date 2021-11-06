@@ -22,7 +22,29 @@ class Container extends Component {
   constructor() {
     super();
     this.state = {
-      songs: [],
+      songs: [
+        {
+          artist: "Blur",
+          title: "song 2",
+          genre: "rock",
+          rating: "5",
+          id: "1",
+        },
+        {
+          artist: "Abba",
+          title: "Waterloo",
+          genre: "pop",
+          rating: "3",
+          id: "2",
+        },
+        {
+          artist: "Beatles",
+          title: "Yesterday",
+          genre: "pop",
+          rating: "4",
+          id: "3",
+        },
+      ],
       genres: [
         {
           genre: "rock",
@@ -38,6 +60,10 @@ class Container extends Component {
         },
         {
           genre: "blues",
+          checked: false,
+        },
+        {
+          genre: "pop",
           checked: false,
         },
       ],
