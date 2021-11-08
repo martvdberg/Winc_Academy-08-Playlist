@@ -37,10 +37,7 @@ function InputItems(props) {
         />
       </label>
 
-      <label
-        htmlFor="genre"
-        className="addSong__item, addSong__item--extraOption"
-      >
+      <label htmlFor="genre" className="addSong__item">
         Genre:
         <select
           className="addSong__item--selectbox"

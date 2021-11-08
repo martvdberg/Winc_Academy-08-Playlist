@@ -1,0 +1,143 @@
+* {
+  margin: 0;
+  padding: 0;
+  letter-spacing: 0.3em;
+}
+
+// general styling
+body {
+  font-family: monospace;
+  background-color: grey;
+}
+
+input[type="text"],
+select,
+button {
+  padding: 5px;
+  border-radius: 4px;
+  border: none;
+  letter-spacing: 0.1em;
+}
+
+// component styling
+.wrapper {
+  display: grid;
+  grid-template-columns: auto 20% 70% auto;
+  grid-template-rows: 150px auto 60px auto;
+  grid-template-areas:
+    "H H H  H"
+    ". A A  ."
+    ". . S  ."
+    ". F So .";
+}
+
+.header {
+  grid-area: H;
+  height: 150px;
+  &__text {
+    padding-top: 30px;
+    text-align: center;
+    font-size: 4.5em;
+  }
+}
+
+.addSongWrapper {
+  grid-area: A;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 15px;
+}
+
+.addSong {
+  border: none;
+  &__item {
+    margin: 0 8px;
+    &--btn {
+      background-color: rgba(142, 255, 142, 0.425);
+      &:hover {
+        background-color: rgba(142, 255, 142, 0.719);
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.sorter {
+  grid-area: S;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 150px;
+  &__item {
+    margin: 0 20px;
+    &--selected {
+      text-decoration: line-through;
+      color: rgba(211, 211, 211, 0.418);
+    }
+  }
+}
+
+.filter {
+  grid-area: F;
+  margin: 0 auto;
+  &__section {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    &--headerText {
+      margin-bottom: 5px;
+      font-size: 1.5em;
+    }
+    &--item {
+      text-transform: capitalize;
+      padding: 5px;
+    }
+  }
+}
+
+.songList {
+  text-transform: capitalize;
+  grid-area: So;
+  align-self: start;
+  &__headings {
+    font-size: 2em;
+    text-align: left;
+    text-decoration: underline;
+    &--artist {
+      width: 375px;
+    }
+    &--title {
+      width: 375px;
+    }
+    &--genre {
+      width: 150px;
+    }
+    &--rating {
+      width: 75px;
+    }
+  }
+  &__body {
+    line-height: 1.6em;
+  }
+  &__subheadings {
+    font-size: 1.7em;
+  }
+  &__song {
+    font-size: 1.1em;
+    & td {
+      padding: 3px;
+    }
+    &:nth-child(even) {
+      background-color: rgb(102, 102, 102);
+    }
+    &--del {
+      width: 50px;
+      text-align: center;
+      &:hover {
+        cursor: pointer;
+        color: rgba(255, 57, 57, 0.507);
+      }
+    }
+  }
+}

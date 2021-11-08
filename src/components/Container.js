@@ -200,6 +200,7 @@ class Container extends Component {
         />
         <SortContainer
           sortValue={this.state.sort}
+          sortByGenre={this.state.sortByGenre}
           handleChangeSort={this.handleChangeSort}
           handleClickSortByGenre={this.handleClickSortByGenre}
         />

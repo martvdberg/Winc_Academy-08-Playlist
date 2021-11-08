@@ -2,10 +2,10 @@ import React from "react";
 
 function Sort(props) {
   return (
-    <label className="sort__item" htmlFor="sort">
+    <label className="sorter__item" htmlFor="sort">
       Sort songs:
       <select
-        className="sort__item--checkbox"
+        className="sorter__item--checkbox"
         value={props.sortValue}
         onChange={props.handleChangeSort}
       >

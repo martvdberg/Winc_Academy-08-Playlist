@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "./components/Header";
 import Container from "./components/Container";
+import styles from "./styles/style.css";
 
 function App() {
   return (

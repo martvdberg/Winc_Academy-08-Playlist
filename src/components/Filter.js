@@ -47,11 +47,11 @@ function Filter(props) {
   return (
     <section className="filter">
       <section className="filter__section">
-        <h2 className="filter__section--headerText">Ratings</h2>
+        <h2 className="filter__section--headerText">Rating</h2>
         {ratings}
       </section>
       <section className="filter__section">
-        <h2 className="filter__section--headerText">genre</h2>
+        <h2 className="filter__section--headerText">Genre</h2>
         {genres}
       </section>
       <button className="filter__section--btn" onClick={props.handleClickReset}>
