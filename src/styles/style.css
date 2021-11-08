@@ -81,7 +81,7 @@ button {
 }
 .sorter__item--selected {
   text-decoration: line-through;
-  color: rgba(211, 211, 211, 0.418);
+  color: rgba(211, 211, 211, 0.171);
 }
 
 .filter {

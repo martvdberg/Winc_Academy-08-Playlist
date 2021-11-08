@@ -23,29 +23,7 @@ class Container extends Component {
   constructor() {
     super();
     this.state = {
-      songs: [
-        {
-          artist: "Blur",
-          title: "song 2",
-          genre: "rock",
-          rating: "5",
-          id: "1",
-        },
-        {
-          artist: "Abba",
-          title: "Waterloo",
-          genre: "pop",
-          rating: "3",
-          id: "2",
-        },
-        {
-          artist: "Beatles",
-          title: "Yesterday",
-          genre: "pop",
-          rating: "4",
-          id: "3",
-        },
-      ],
+      songs: [],
       genres: [
         {
           genre: "rock",
@@ -61,10 +39,6 @@ class Container extends Component {
         },
         {
           genre: "blues",
-          checked: false,
-        },
-        {
-          genre: "pop",
           checked: false,
         },
       ],
@@ -95,7 +69,7 @@ class Container extends Component {
     };
   }
 
-  //   handle the submit of a new song
+  // handle the submit of a new song
   handleSubmit = (event) => {
     event.preventDefault();
     // create a new song object from the submit data
