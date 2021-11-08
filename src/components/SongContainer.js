@@ -1,23 +1,11 @@
 import React from "react";
-import createKey from "../util";
+import createKey, { selected } from "../util";
 import Song from "./Song";
 
 function SongList(props) {
-  // create an array of checked genres
-  const selectedGenres = props.genres.reduce((newArray, current) => {
-    if (current.checked) {
-      newArray.push(current.genre);
-    }
-    return newArray;
-  }, []);
-
-  // create an array of all the checked ratings
-  const selectedRatings = props.ratings.reduce((newArray, current) => {
-    if (current.checked) {
-      newArray.push(current.rating);
-    }
-    return newArray;
-  }, []);
+  // create array's for checked genres and ratings
+  const selectedGenres = selected(props.genres, "genre");
+  const selectedRatings = selected(props.ratings, "rating");
 
   // filter songs based on checked ratings and genres
   const songs = props.songs.reduce((filterdSongs, current) => {
